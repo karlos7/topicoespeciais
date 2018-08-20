@@ -1,0 +1,4 @@
+git --version (Verifica a versão do git)
+git init (Inicia um repositório vazio na pasta atual)
+git config --global user.name "Karlos Oliveira" (Cria usuário do git)
+git config --global user.email "karlos.1914.so@gmail.com" (Cria email do git)
