@@ -1,9 +1,16 @@
 package fvs.edu.br.topicos.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import fvs.edu.br.topicos.enums.TipoCliente;
 
@@ -19,6 +26,13 @@ public class Cliente implements Serializable {
 	private String email;
 	private String cpfOuCnpj;
 	private TipoCliente tipo;
+	
+	@OneToMany
+	private List<Endereco> enderecos = new ArrayList<>(); 
+	
+	@ElementCollection
+	@CollectionTable(name="TELEFONE")
+	private Set<String> telefones = new HashSet<>();
 	
 	public Cliente() {}
 
@@ -69,6 +83,22 @@ public class Cliente implements Serializable {
 
 	public void setTipo(TipoCliente tipo) {
 		this.tipo = tipo;
+	}
+	
+	public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
+	}
+
+	public Set<String> getTelefones() {
+		return telefones;
+	}
+
+	public void setTelefones(Set<String> telefones) {
+		this.telefones = telefones;
 	}
 
 	@Override
