@@ -20,11 +20,14 @@ public class Categoria implements Serializable{
 	private String nome;
 	
 	@ManyToMany(mappedBy="categorias")
-	private List<Produto> produtos = new ArrayList<>();
+	List<Produto> produtos = new ArrayList<>();
 	
-	public Categoria(){}
 	
-	public Categoria(Integer id, String nome){
+	public Categoria() {
+		
+	}
+
+	public Categoria(Integer id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -46,6 +49,8 @@ public class Categoria implements Serializable{
 		this.nome = nome;
 	}
 	
+	
+
 	public List<Produto> getProdutos() {
 		return produtos;
 	}
@@ -80,4 +85,5 @@ public class Categoria implements Serializable{
 	}
 	
 	
+
 }
